@@ -8,6 +8,8 @@ node_modules
 /.next/
 /out/
 
+/context
+
 # production
 /build
 

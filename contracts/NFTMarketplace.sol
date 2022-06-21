@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.15;
+pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -23,8 +23,8 @@ contract NFTMarketplace is ERC721URIStorage {
 
     struct MarketItem {
         uint256 tokenId;
-        address payable seller;
-        address payable owner;
+        address  seller;
+        address  owner;
         uint256 price;
         bool sold;
     }
@@ -36,7 +36,7 @@ contract NFTMarketplace is ERC721URIStorage {
         bool sold
     );
 
-    constructor() ERC721("Metaverse Token","METT"){
+    constructor() ERC721("Metaverse Tokens","METT"){
         owner = payable(msg.sender);
     }
 
