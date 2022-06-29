@@ -6,7 +6,9 @@ import { useRouter } from "next/router";
 import { useDropzone } from "react-dropzone";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { NFTContext } from "../context/NFTContext";
 import { Button, Input } from "../components";
+
 import images from "../assets";
 
 const CreateNft = () => {
@@ -17,9 +19,13 @@ const CreateNft = () => {
     description: "",
   });
   const { theme } = useTheme();
-
-  const onDrop = useCallback(() => {
+  const { uploadToIPFS } = useContext(NFTContext);
+  const onDrop = useCallback(async (acceptedFile) => {
     // upload image to IPFS or blockchain
+    const url = await uploadToIPFS(acceptedFile[0]);
+
+    console.log({ url });
+    setFileUrl(url);
   }, []);
   const {
     getRootProps,
