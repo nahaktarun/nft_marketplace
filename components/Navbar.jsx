@@ -16,7 +16,7 @@ const MenuItems = ({ isMobile, active, setActive }) => {
       case 0:
         return "/";
       case 1:
-        return "created-nft";
+        return "listed-nft";
       case 2:
         return "/my-nfts";
       default:
